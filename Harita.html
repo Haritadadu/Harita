@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Be My Valentine</title>
+    <style>
+        /* Center the envelope */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://img.freepik.com/premium-photo/moon-against-bright-night-starry-sky-reflected-sea_180633-732.jpg?semt=ais_hybrid');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        /* Envelope styles */
+        .envelope {
+            width: 300px;
+            height: 300px;
+            background-color: #ffe6e6; /* Light pink color */
+            border: 1px solid #ffc0cb; /* Light pink border */
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); /* Pentagon shape */
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .envelope .letter {
+            width: 80%;
+            height: 80%;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0.5s ease-in-out;
+        }
+        .envelope.open .letter {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        /* Letter styles */
+        .letter h1 {
+            color: #ff69b4; /* Deep pink color */
+            text-align: center;
+        }
+        /* Decorations */
+        .heart-decoration {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            animation: heartbeat 2s infinite;
+        }
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .penguin-image {
+            width: 20px;
+            height: 20px;
+            background-image: url('https://source.unsplash.com/50x50/?penguin');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+        /* Quote styles */
+        .background-quote {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope">
+            <div class="letter">
+                <h1>Will you be my Valentine?</h1>
+                <a href="penguin.html" class="precious-link">For you 🎁</a>
+                <div class="penguin-image"></div>
+            </div>
+            <div class="heart-decoration"></div>
+        </div>
+        <div class="background-quote">
+            "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
+        </div>
+    </div>
+
+    <script>
+        const envelope = document.querySelector('.envelope');
+        const letter = document.querySelector('.letter');
+
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
