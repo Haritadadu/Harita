@@ -68,6 +68,25 @@
             background: linear-gradient(45deg, #ff69b4, #ff1493);
         }
 
+        .click-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5em;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.7);
+            animation: textGlow 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.7); }
+            50% { text-shadow: 0 0 20px rgba(255, 20, 147, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.7); }
+        }
+
         .letter {
             width: 85%;
             height: 85%;
@@ -218,6 +237,8 @@
     <div class="container">
         <div class="floating-hearts"></div>
         <div class="envelope">
+            <!-- Click Me text added inside the envelope -->
+            <div class="click-text">Click Me!</div>
             <div class="letter">
                 <h1>Will you be my Valentine?</h1>
                 <div class="letter-content">
