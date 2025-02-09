@@ -31,7 +31,7 @@
             left: 0;
             width: 100%;
             text-align: center;
-            z-index: 3;
+            z-index: 2;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             font-family: 'Dancing Script', cursive;
@@ -50,13 +50,14 @@
             font-size: 1.5em;
         }
 
+        /* Container for centering the envelope */
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         .envelope {
@@ -73,7 +74,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 2;
+            z-index: 3;
         }
 
         .envelope.open {
@@ -110,7 +111,7 @@
             opacity: 0;
             transition: all 0.8s ease-in-out;
             z-index: 1;
-            font-size: 1em; /* Adjusting font size to be smaller */
+            font-size: 1em; 
             text-align: center;
         }
 
@@ -129,7 +130,7 @@
 
         .letter-content {
             font-family: 'Arial', sans-serif;
-            font-size: 1em; /* Smaller font size for better readability */
+            font-size: 1em;
             color: #333;
             line-height: 1.6;
             text-align: center;
@@ -165,7 +166,7 @@
             position: absolute;
             width: 25px;
             height: 25px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/08/30/19/42/flower-2693127_960_720.png'); /* Replace with a red flower image */
+            background-image: url('https://cdn.pixabay.com/photo/2017/08/30/19/42/flower-2693127_960_720.png'); /* Flower Image */
             background-size: cover;
             animation: flowerFloating 6s ease-in infinite;
             opacity: 0.7;
