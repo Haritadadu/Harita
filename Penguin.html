@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,72 +23,7 @@
             font-size: 50px;
             cursor: pointer;
             transition: transform 0.3s;
-        }
-        .heart:hover {
-        }
-            transform: scale(1.2);
-        }
-        .message {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-    </style>
-</head>
-<body>
-   </style>
-
-<h1>Will You Be My Penguin?</h1>
-<img class="penguin" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/640px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg" alt="Penguin Image">
-<div class="heart" onclick="showMessage()">❤️
-    <span class="tooltip">Click me!</span>
-</div>
-<div class="message" id="message"></div>
-
-<script>
-    function showMessage() {
-        const messageDiv = document.getElementById('message');
-        messageDiv.innerText = "You make my heart flap like a penguin!";
-    }
-</script>
-</body>
-</html>
-
-Check if code is fine and make the necessary changes sincw it wjll be second page
-ChatGPT said:
-Your HTML has a few issues and improvements that need to be made. I'll walk you through them and provide the corrected version:
-
-Issues:
-Extra Closing </style> Tag: There is an extra </style> tag just before the <h1> tag that should be removed.
-CSS for Heart Hover Effect: The hover effect for the .heart class is missing proper syntax. The transform: scale(1.2); should be inside the .heart:hover selector.
-Missing Tooltip Styling: The .tooltip class is mentioned but not styled. You might want to add some styles for that.
-Overall Structure: Since this is a second page, it might be good to consider linking it to other pages or modifying navigation accordingly.
-Here is the corrected version of the HTML:
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penguin Proposal</title>
-    <style>
-        body {
-            background-color: #e0f7fa;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #00796b;
-        }
-        .penguin {
-            width: 150px;
-            margin: 20px auto;
-        }
-        .heart {
-            color: red;
-            font-size: 50px;
-            cursor: pointer;
-            transition: transform 0.3s;
+            position: relative;
         }
         .heart:hover {
             transform: scale(1.2);
@@ -102,7 +36,10 @@ Here is the corrected version of the HTML:
             display: inline-block;
             font-size: 0.8em;
             color: #00796b;
-            margin-top: 10px;
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
             visibility: hidden;
         }
         .heart:hover .tooltip {
@@ -113,9 +50,11 @@ Here is the corrected version of the HTML:
 <body>
     <h1>Will You Be My Penguin?</h1>
     <img class="penguin" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/640px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg" alt="Penguin Image">
+    
     <div class="heart" onclick="showMessage()">❤️
         <span class="tooltip">Click me!</span>
     </div>
+    
     <div class="message" id="message"></div>
 
     <script>
