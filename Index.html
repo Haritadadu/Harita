@@ -159,6 +159,23 @@
             font-family: 'Pacifico', cursive;
         }
 
+        /* Floating flowers */
+        .flower {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-image: url('https://cdn.pixabay.com/photo/2017/08/30/19/42/flower-2693127_960_720.png'); /* Replace with a red flower image */
+            background-size: cover;
+            animation: flowerFloating 6s ease-in infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes flowerFloating {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            50% { opacity: 0.7; }
+            100% { transform: translateY(-1000px) scale(1); opacity: 0; }
+        }
+
         .hearts-container, .flowers-container {
             position: fixed;
             width: 100%;
@@ -168,50 +185,9 @@
             overflow: hidden;
         }
 
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ff69b4;
-            transform: rotate(45deg);
-            animation: floating 4s ease-in infinite;
-            opacity: 0.6;
-        }
-
-        .heart:before,
-        .heart:after {
-            content: '';
-            width: 20px;
-            height: 20px;
-            background: #ff69b4;
-            border-radius: 50%;
-            position: absolute;
-        }
-
-        .heart:before { left: -10px; }
-        .heart:after { top: -10px; }
-
-        @keyframes floating {
-            0% { transform: rotate(45deg) translateY(0) scale(0.3); opacity: 0; }
-            50% { opacity: 0.6; }
-            100% { transform: rotate(45deg) translateY(-1000px) scale(1); opacity: 0; }
-        }
-
-        /* Floating flowers */
-        .flower {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/08/30/19/42/flower-2693127_960_720.png'); /* Replace with your own flower image URL */
-            background-size: cover;
-            animation: flowerFloating 4s ease-in infinite;
-            opacity: 0.7;
-        }
-
-        @keyframes flowerFloating {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            50% { opacity: 0.7; }
-            100% { transform: translateY(-1000px) scale(1); opacity: 0; }
+        /* Prevent letter and text from moving */
+        .letter, .click-text {
+            position: static; /* Ensuring they don't move with animations */
         }
     </style>
 </head>
@@ -264,42 +240,24 @@
             }
         }
 
-        // Function to generate floating hearts in the background
-        function createHearts() {
-            const heartContainer = document.querySelector(".hearts-container");
-            for (let i = 0; i < 30; i++) {
-                const heart = document.createElement("div");
-                heart.classList.add("heart");
-
-                // Set random position for the heart
-                heart.style.left = `${Math.random() * 100}%`;
-                heart.style.animationDuration = `${Math.random() * 2 + 3}s`; // Random duration for floating effect
-                heart.style.animationDelay = `${Math.random() * 2}s`; // Random delay for starting the animation
-
-                heartContainer.appendChild(heart);
-            }
-        }
-
         // Function to generate floating flowers in the background
         function createFlowers() {
             const flowerContainer = document.querySelector(".flowers-container");
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 30; i++) {
                 const flower = document.createElement("div");
                 flower.classList.add("flower");
 
                 // Set random position for the flower
                 flower.style.left = `${Math.random() * 100}%`;
-                flower.style.animationDuration = `${Math.random() * 3 + 4}s`; // Random duration for floating effect
-                flower.style.animationDelay = `${Math.random() * 3}s`; // Random delay for starting the animation
+                flower.style.animationDuration = `${Math.random() * 2 + 5}s`; // Random duration for floating effect
+                flower.style.animationDelay = `${Math.random() * 2}s`; // Random delay for starting the animation
 
                 flowerContainer.appendChild(flower);
             }
         }
 
-        // Call functions to add floating hearts and flowers on page load
-        createHearts();
+        // Call the createFlowers function to add floating flowers on page load
         createFlowers();
     </script>
 </body>
 </html>
-
