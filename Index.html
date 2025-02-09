@@ -31,7 +31,7 @@
             left: 0;
             width: 100%;
             text-align: center;
-            z-index: 2;
+            z-index: 3;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             font-family: 'Dancing Script', cursive;
@@ -50,14 +50,13 @@
             font-size: 1.5em;
         }
 
-        /* Container for centering the envelope */
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             position: relative;
-            z-index: 3;
+            z-index: 2;
         }
 
         .envelope {
@@ -74,7 +73,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 3;
         }
 
         .envelope.open {
@@ -111,7 +109,7 @@
             opacity: 0;
             transition: all 0.8s ease-in-out;
             z-index: 1;
-            font-size: 1em; 
+            font-size: 1em;
             text-align: center;
         }
 
@@ -161,24 +159,7 @@
             font-family: 'Pacifico', cursive;
         }
 
-        /* Floating flowers */
-        .flower {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/08/30/19/42/flower-2693127_960_720.png'); /* Flower Image */
-            background-size: cover;
-            animation: flowerFloating 6s ease-in infinite;
-            opacity: 0.7;
-        }
-
-        @keyframes flowerFloating {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            50% { opacity: 0.7; }
-            100% { transform: translateY(-1000px) scale(1); opacity: 0; }
-        }
-
-        .hearts-container, .flowers-container {
+        .hearts-container {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -187,17 +168,41 @@
             overflow: hidden;
         }
 
-        /* Prevent letter and text from moving */
-        .letter, .click-text {
-            position: static; /* Ensuring they don't move with animations */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff69b4;
+            transform: rotate(45deg);
+            animation: floating 4s ease-in infinite;
+            opacity: 0.6;
         }
 
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #ff69b4;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before { left: -10px; }
+        .heart:after { top: -10px; }
+
+        @keyframes floating {
+            0% { transform: rotate(45deg) translateY(0) scale(0.3); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: rotate(45deg) translateY(-1000px) scale(1); opacity: 0; }
+        }
     </style>
 </head>
 <body>
     <!-- Romantic audio background -->
     <audio controls>
         <source src="https://www.bensound.com/bensound-music/bensound-encore.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
     </audio>
     <div class="header-quote">
         "In all the world, there is no heart for me like yours." ❤️
@@ -208,7 +213,7 @@
             <div class="click-text" id="clickText">Click Me</div>
             <div class="letter" id="letter">
                 <h1>Be My Valentine</h1>
-                <p class="letter-content">will you be my valentine?</p>
+                <p class="letter-content">Will you be my valentine?</p>
                 <div class="precious-link-box">
                     <a href="penguin.html" target="_blank">For You ❤️</a>
                 </div>
@@ -221,7 +226,6 @@
     </div>
 
     <div class="hearts-container"></div>
-    <div class="flowers-container"></div>
 
     <script>
         function toggleEnvelope() {
@@ -243,24 +247,24 @@
             }
         }
 
-        // Function to generate floating flowers in the background
-        function createFlowers() {
-            const flowerContainer = document.querySelector(".flowers-container");
+        // Function to generate floating hearts in the background
+        function createHearts() {
+            const heartContainer = document.querySelector(".hearts-container");
             for (let i = 0; i < 30; i++) {
-                const flower = document.createElement("div");
-                flower.classList.add("flower");
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
 
-                // Set random position for the flower
-                flower.style.left = `${Math.random() * 100}%`;
-                flower.style.animationDuration = `${Math.random() * 2 + 5}s`; // Random duration for floating effect
-                flower.style.animationDelay = `${Math.random() * 2}s`; // Random delay for starting the animation
+                // Set random position for the heart
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 2 + 3}s`; // Random duration for floating effect
+                heart.style.animationDelay = `${Math.random() * 2}s`; // Random delay for starting the animation
 
-                flowerContainer.appendChild(flower);
+                heartContainer.appendChild(heart);
             }
         }
 
-        // Call the createFlowers function to add floating flowers on page load
-        createFlowers();
+        // Call the createHearts function to add floating hearts on page load
+        window.onload = createHearts;
     </script>
 </body>
 </html>
