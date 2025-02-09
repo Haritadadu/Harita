@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,13 +38,17 @@
             font-size: 0.8em;
             color: #00796b;
             position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 50px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
             visibility: hidden;
         }
         .heart:hover .tooltip {
             visibility: visible;
+        }
+        audio {
+            display: none; /* Hide the audio player */
         }
     </style>
 </head>
@@ -51,11 +56,19 @@
     <h1>Will You Be My Penguin?</h1>
     <img class="penguin" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg/640px-Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg" alt="Penguin Image">
     
+    <!-- Heart and Tooltip -->
     <div class="heart" onclick="showMessage()">❤️
         <span class="tooltip">Click me!</span>
     </div>
     
+    <!-- Message Display -->
     <div class="message" id="message"></div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="https://music.youtube.com/watch?v=dNvqJIeHPis&si=S0y8IgDbEee0EfoV" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
         function showMessage() {
