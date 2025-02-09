@@ -46,13 +46,6 @@
             transition: all 0.8s ease-in-out;
             box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
             cursor: pointer;
-            animation: envelopeGlow 3s infinite;
-        }
-
-        @keyframes envelopeGlow {
-            0% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(255, 20, 147, 0.8); }
-            100% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); }
         }
 
         .envelope:hover {
@@ -69,19 +62,12 @@
             font-size: 1.2em;
             color: #fff;
             text-shadow: 0 0 10px rgba(255, 182, 193, 0.7);
-            animation: textGlow 2s infinite;
             cursor: pointer;
         }
 
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.7); }
-            50% { text-shadow: 0 0 20px rgba(255, 20, 147, 0.8); }
-            100% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.7); }
-        }
-
         .letter {
-            width: 70%;
-            height: 70%;
+            width: 80%; /* Adjust width to ensure text fits within the envelope */
+            height: 80%; /* Adjust height to ensure text fits within the envelope */
             background: linear-gradient(135deg, #fff, #fff5f5);
             padding: 20px;
             margin: 20px auto;
@@ -91,23 +77,8 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: all 0.8s ease-in-out;
-            opacity: 0;
-        }
-
-        .envelope.open .letter {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-            animation: letterColorChange 5s infinite;
-        }
-
-        @keyframes letterColorChange {
-            0% { border-color: #ff69b4; }
-            25% { border-color: #ff1493; }
-            50% { border-color: #ff4081; }
-            75% { border-color: #ec407a; }
-            100% { border-color: #ff69b4; }
+            transform: translate(-50%, -50%);
+            opacity: 1; /* Ensure letter is always visible */
         }
 
         .letter h1 {
@@ -118,13 +89,12 @@
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 20px;
-            animation: titleGlow 2s infinite;
         }
 
-        @keyframes titleGlow {
-            0% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.5); }
-            50% { text-shadow: 0 0 20px rgba(255, 20, 147, 0.8); }
-            100% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.5); }
+        .letter-content {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.6;
         }
 
         .precious-link {
@@ -180,13 +150,6 @@
             padding: 10px 20px;
             border-radius: 10px;
             background: rgba(0, 0, 0, 0.5);
-            animation: quoteGlow 3s infinite;
-        }
-
-        @keyframes quoteGlow {
-            0% { text-shadow: 0 0 10px #fff; }
-            50% { text-shadow: 0 0 20px #ff69b4; }
-            100% { text-shadow: 0 0 10px #fff; }
         }
     </style>
 </head>
@@ -252,17 +215,5 @@
         setInterval(createHeart, 300);
     </script>
 
-    <!-- Second Page (penguin.html) -->
-    <div id="penguinPage" style="display: none;">
-        <div class="container">
-            <div class="gift-box">
-                <h1>Your Special Gift 🎁</h1>
-                <p>My dearest,</p>
-                <p>Every moment with you makes my heart flutter. I hope this little surprise brings a smile to your face. You mean the world to me!</p>
-                <a href="index.html" class="precious-link">Back to the Surprise ✨</a>
-                <button id="backBtn" onclick="window.location.href='index.html'">Back to Main Page</button>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
