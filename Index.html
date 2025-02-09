@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
     <title>Be My Valentine</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        /* All previous styles remain the same... */
+        /* Global Styles */
         :root {
             --primary-color: #ff69b4;
             --secondary-color: #ff1493;
@@ -17,17 +16,10 @@
         body {
             margin: 0;
             padding: 0;
-            animation: backgroundChange 15s infinite;
+            font-family: 'Pacifico', cursive;
         }
 
-        @keyframes backgroundChange {
-            0% { background-color: #ffebee; }
-            25% { background-color: #fce4ec; }
-            50% { background-color: #f3e5f5; }
-            75% { background-color: #e8eaf6; }
-            100% { background-color: #ffebee; }
-        }
-
+        /* First Page Styles */
         .container {
             display: flex;
             justify-content: center;
@@ -74,7 +66,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: 'Pacifico', cursive;
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #fff;
             text-shadow: 0 0 10px rgba(255, 182, 193, 0.7);
             animation: textGlow 2s infinite;
@@ -136,36 +128,29 @@
         }
 
         .precious-link {
-            display: inline-block;
-            text-align: center;
-            font-family: 'Pacifico', cursive;
-            color: var(--primary-color);
-            text-decoration: none;
             font-size: 1.5em;
-            margin: 20px 0;
+            text-align: center;
+            display: inline-block;
+        }
+
+        #clickMeBtn {
+            display: block;
+            margin-top: 15px;
+            background-color: #ff1493;
+            color: white;
+            font-size: 1.2em;
             padding: 10px 20px;
-            border: 2px solid var(--primary-color);
+            border: none;
             border-radius: 25px;
-            transition: all 0.3s ease;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .precious-link:hover {
-            transform: scale(1.1);
-            border-color: var(--secondary-color);
-            animation: linkGlow 1s infinite;
+        #clickMeBtn:hover {
+            background-color: #ff69b4;
         }
 
-        @keyframes linkGlow {
-            0% { box-shadow: 0 0 10px var(--primary-color); }
-            50% { box-shadow: 0 0 20px var(--secondary-color); }
-            100% { box-shadow: 0 0 10px var(--primary-color); }
-        }
-
+        /* Floating Hearts */
         .floating-hearts {
             position: absolute;
             width: 100%;
@@ -203,30 +188,6 @@
             50% { text-shadow: 0 0 20px #ff69b4; }
             100% { text-shadow: 0 0 10px #fff; }
         }
-
-        /* Additional styles to ensure visibility */
-        #clickMeBtn {
-            display: block;
-            margin-top: 15px;
-            background-color: #ff1493;
-            color: white;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #clickMeBtn:hover {
-            background-color: #ff69b4;
-        }
-
-        .precious-link {
-            font-size: 1.5em;
-            text-align: center;
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
@@ -237,22 +198,16 @@
     <div class="container">
         <div class="floating-hearts"></div>
         <div class="envelope">
-            <!-- Click Me text added inside the envelope -->
             <div class="click-text">Click Me!</div>
             <div class="letter">
                 <h1>Will you be my Valentine?</h1>
                 <div class="letter-content">
                     <p>My dearest,</p>
                     <p>Every moment with you makes my heart flutter,<br>
-                       Like stars dancing in the night sky.<br>
-                       Would you make my day special by being my Valentine?</p>
+                    Like stars dancing in the night sky.<br>
+                    Would you make my day special by being my Valentine?</p>
                     <a href="penguin.html" class="precious-link">For you 🎁</a>
-                <div class="penguin-image"></div>
                 </div>
-                <!-- The link to penguin.html -->
-                <a href="penguin.html" class="precious-link">Open Your Special Gift 🎁</a>
-                
-                <!-- "Click Me" Button -->
                 <button id="clickMeBtn">Click Me</button>
             </div>
         </div>
@@ -297,5 +252,18 @@
         // Create hearts at intervals
         setInterval(createHeart, 300);
     </script>
+
+    <!-- Second Page (penguin.html) -->
+    <div id="penguinPage" style="display: none;">
+        <div class="container">
+            <div class="gift-box">
+                <h1>Your Special Gift 🎁</h1>
+                <p>My dearest,</p>
+                <p>Every moment with you makes my heart flutter. I hope this little surprise brings a smile to your face. You mean the world to me!</p>
+                <a href="index.html" class="precious-link">Back to the Surprise ✨</a>
+                <button id="backBtn" onclick="window.location.href='index.html'">Back to Main Page</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
