@@ -185,6 +185,29 @@
             100% { text-shadow: 0 0 10px #fff; }
         }
 
+        /* Additional styles to ensure visibility */
+        #clickMeBtn {
+            display: block;
+            margin-top: 15px;
+            background-color: #ff1493;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #clickMeBtn:hover {
+            background-color: #ff69b4;
+        }
+
+        .precious-link {
+            font-size: 1.5em;
+            text-align: center;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -204,8 +227,11 @@
                        Would you make my day special by being my Valentine?</p>
                     <p>Forever yours,<br>❤️</p>
                 </div>
+                <!-- The link to penguin.html -->
                 <a href="penguin.html" class="precious-link">Open Your Special Gift 🎁</a>
-                <button id="clickMeBtn" class="precious-link">Click Me</button>
+                
+                <!-- "Click Me" Button -->
+                <button id="clickMeBtn">Click Me</button>
             </div>
         </div>
         <div class="background-quote">
