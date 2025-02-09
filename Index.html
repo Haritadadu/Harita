@@ -67,17 +67,16 @@
             clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
             position: relative;
             overflow: hidden;
+            transition: all 0.8s ease-in-out;
             box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 1; /* Envelope will be visible */
-            transition: transform 0.3s ease; /* Transition only transform */
         }
 
         .envelope.open {
-            transform: translateY(-50px); /* Envelope moves up on click */
+            transform: translateY(-50px);
         }
 
         .click-text {
@@ -108,13 +107,15 @@
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
+            transition: all 0.8s ease-in-out;
             z-index: 1;
-            font-size: 1em;
+            font-size: 1em; /* Adjusting font size to be smaller */
             text-align: center;
         }
 
         .envelope.open .letter {
-            opacity: 1; /* Show the letter when envelope is open */
+            transform: translate(-50%, -80%);
+            opacity: 1;
         }
 
         .letter h1 {
@@ -127,7 +128,7 @@
 
         .letter-content {
             font-family: 'Arial', sans-serif;
-            font-size: 1em;
+            font-size: 1em; /* Smaller font size for better readability */
             color: #333;
             line-height: 1.6;
             text-align: center;
@@ -198,7 +199,8 @@
     </style>
 </head>
 <body>
-    <audio controls>
+    <!-- Romantic audio background -->
+    <audio controls autoplay loop>
         <source src="https://www.bensound.com/bensound-music/bensound-encore.mp3" type="audio/mp3">
     </audio>
     <div class="header-quote">
@@ -236,7 +238,7 @@
             // Show/hide the "Click Me" text
             clickText.classList.toggle("hidden");
 
-            // If the envelope is open, make sure the letter appears
+            // If the envelope is open, animate the letter to appear
             if (envelope.classList.contains("open")) {
                 letter.style.opacity = "1";
             } else {
