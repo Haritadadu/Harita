@@ -1,182 +1,130 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
-    <style>
-        /* Global Styles */
-        :root {
-            --primary-color: #ff69b4;
-            --secondary-color: #ff1493;
-            --accent-color: #ffb6c1;
-        }
+<!-- Previous head content remains same until body -->
+<style>
+    /* Add these new styles for header and footer quotes */
+    .header-quote {
+        position: fixed;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 3;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8em;
+        padding: 10px;
+        background: rgba(255, 105, 180, 0.3);
+        backdrop-filter: blur(5px);
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Pacifico', cursive;
-            background-image: url('https://img.freepik.com/premium-photo/moon-against-bright-night-starry-sky-reflected-sea_180633-732.jpg?semt=ais_hybrid');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            overflow: hidden;
-            position: relative;
-            min-height: 100vh;
-        }
+    .footer-quote {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 3;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.5em;
+        padding: 10px;
+        background: rgba(255, 105, 180, 0.3);
+        backdrop-filter: blur(5px);
+    }
 
-        /* Envelope Styles */
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: relative;
-        }
+    /* Add sparkle animation */
+    .sparkle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: white;
+        animation: sparkle 1.5s linear infinite;
+        pointer-events: none;
+    }
 
-        .envelope {
-            width: 350px;
-            height: 350px;
-            background: rgba(255, 182, 193, 0.8);
-            border: 2px solid var(--primary-color);
-            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.8s ease-in-out;
-            box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 1000px;
-        }
-
-        .envelope.open {
-            transform: translateY(-50px);
-        }
-
-        .click-text {
-            font-family: 'Pacifico', cursive;
-            font-size: 1.2em;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 182, 193, 0.7);
-            cursor: pointer;
-            position: absolute;
-            z-index: 2;
-        }
-
-        .letter {
-            width: 80%;
-            height: 80%;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            margin: 20px auto;
-            border: 2px solid var(--primary-color);
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+    @keyframes sparkle {
+        0% {
+            transform: scale(0) rotate(0deg);
             opacity: 0;
-            transition: all 0.8s ease-in-out;
-            z-index: 1;
         }
-
-        .envelope.open .letter {
-            transform: translate(-50%, -80%);
+        50% {
+            transform: scale(1) rotate(180deg);
             opacity: 1;
         }
-
-        .letter h1 {
-            font-family: 'Dancing Script', cursive;
-            color: var(--secondary-color);
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        100% {
+            transform: scale(0) rotate(360deg);
+            opacity: 0;
         }
+    }
 
-        .letter-content {
-            font-size: 1.2em;
-            color: #333;
-            line-height: 1.6;
-            font-family: 'Dancing Script', cursive;
-        }
+    /* Previous styles remain the same */
+</style>
 
-        /* Rectangular Box for 'For You' Link */
-        .precious-link-box {
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: var(--primary-color);
-            border-radius: 10px;
-            text-align: center;
-            width: 250px;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-            transition: background-color 0.3s ease;
-            margin: 20px auto;
-        }
-
-        .precious-link-box a {
-            font-size: 1.5em;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .precious-link-box:hover {
-            background-color: #ff1493;
-            transform: scale(1.05);
-        }
-
-        .click-text.hidden {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .envelope {
-                width: 300px;
-                height: 300px;
-            }
-
-            .letter {
-                width: 85%;
-                height: 85%;
-            }
-
-            .letter h1 {
-                font-size: 2em;
-            }
-
-            .letter-content {
-                font-size: 1em;
-            }
-        }
-    </style>
-</head>
 <body>
-    <!-- Background Music -->
-    <audio autoplay loop>
-        <source src="path_to_your_romantic_song.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <div class="container">
-        <div class="envelope" id="envelope" onclick="toggleEnvelope()">
-            <div class="click-text" id="clickText">Click Me</div>
-            <div class="letter" id="letter">
-                <h1>Be My Valentine</h1>
-                <p class="letter-content">I hope this message brings a smile to your face. Wishing you a day filled with love and happiness. Happy Valentine's Day!</p>
-                <div class="precious-link-box">
-                    <a href="second-page.html" target="_blank">For You</a>
-                </div>
-            </div>
-        </div>
+    <!-- Header Quote -->
+    <div class="header-quote">
+        "In all the world, there is no heart for me like yours." ❤️
     </div>
 
+    <!-- Previous content (glow, hearts, container) -->
+    <div class="glow"></div>
+    <div class="hearts"></div>
+
+    <div class="container">
+        <!-- Envelope content remains the same -->
+    </div>
+
+    <!-- Footer Quote -->
+    <div class="footer-quote">
+        "Every love story is beautiful, but ours is my favorite." 💕
+    </div>
+
+    <!-- Add this script for sparkle effect -->
     <script>
+        // Previous toggleEnvelope function remains the same
+
+        // Add sparkle effect
+        function createSparkles() {
+            const colors = ['#FFB6C1', '#FF69B4', '#ffffff'];
+            setInterval(() => {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * window.innerWidth + 'px';
+                sparkle.style.top = Math.random() * window.innerHeight + 'px';
+                sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1500);
+            }, 200);
+        }
+
+        // Create floating hearts
+        function createHeart() {
+            const hearts = document.querySelector('.hearts');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            hearts.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Initialize effects
+        window.onload = function() {
+            setInterval(createHeart, 300);
+            createSparkles();
+        };
+
         function toggleEnvelope() {
             const envelope = document.getElementById('envelope');
             const letter = document.getElementById('letter');
