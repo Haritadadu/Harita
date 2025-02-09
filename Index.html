@@ -46,6 +46,9 @@
             transition: all 0.8s ease-in-out;
             box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .envelope:hover {
@@ -54,10 +57,6 @@
         }
 
         .click-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             font-family: 'Pacifico', cursive;
             font-size: 1.2em;
             color: #fff;
@@ -78,7 +77,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 1; /* Ensure letter is always visible */
+            opacity: 0; /* Initially hidden */
+            transition: all 0.8s ease-in-out;
         }
 
         .letter h1 {
@@ -204,6 +204,13 @@
         // Play music on user interaction
         document.body.addEventListener('click', () => {
             document.getElementById('bgMusic').play();
+        });
+
+        // Envelope click action to reveal the message
+        const envelope = document.querySelector('.envelope');
+        envelope.addEventListener('click', () => {
+            document.querySelector('.letter').style.opacity = 1; // Show letter content
+            envelope.querySelector('.click-text').style.display = 'none'; // Hide "Click Me"
         });
 
         // "Click Me" button action
