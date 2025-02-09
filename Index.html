@@ -38,10 +38,6 @@
             padding: 10px;
             background: rgba(255, 105, 180, 0.3);
             backdrop-filter: blur(5px);
-        }
-
-        .header-quote {
-            top: 20px;
             font-size: 1.8em;
         }
 
@@ -66,12 +62,13 @@
             border: 2px solid var(--primary-color);
             clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
             position: relative;
-            overflow: hidden:
+            overflow: hidden;
             box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: transform 0.3s ease;
         }
 
         .envelope.open {
@@ -86,6 +83,7 @@
             cursor: pointer;
             position: absolute;
             z-index: 2;
+            opacity: 0.8;
         }
 
         .click-text.hidden {
@@ -109,6 +107,7 @@
             z-index: 1;
             font-size: 1em;
             text-align: center;
+            transition: transform 0.5s ease, opacity 0.5s ease;
         }
 
         .envelope.open .letter {
@@ -122,15 +121,17 @@
             text-align: center;
             font-size: 2em;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
         }
 
         .letter-content {
             font-family: 'Arial', sans-serif;
-            font-size: 1em;
+            font-size: 1.2em;
             color: #333;
             line-height: 1.6;
             text-align: center;
             margin: 10px 0;
+            transition: transform 0.3s ease;
         }
 
         .precious-link-box {
@@ -194,14 +195,16 @@
             50% { opacity: 0.6; }
             100% { transform: rotate(45deg) translateY(-1000px) scale(1); opacity: 0; }
         }
+
     </style>
 </head>
 <body>
     <!-- Romantic audio background -->
-    <audio controls>
+    <audio controls autoplay loop>
         <source src="https://www.bensound.com/bensound-music/bensound-encore.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+    
     <div class="header-quote">
         "In all the world, there is no heart for me like yours." ❤️
     </div>
