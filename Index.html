@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +18,13 @@
             margin: 0;
             padding: 0;
             font-family: 'Pacifico', cursive;
-            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            background-image: url('https://img.freepik.com/premium-photo/moon-against-bright-night-starry-sky-reflected-sea_180633-732.jpg?semt=ais_hybrid');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             overflow: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
         /* Envelope Styles */
@@ -45,10 +50,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            perspective: 1000px;
         }
 
         .envelope.open {
-            transform: rotateX(180deg);
+            transform: translateY(-50px);
         }
 
         .click-text {
@@ -57,12 +63,14 @@
             color: #fff;
             text-shadow: 0 0 10px rgba(255, 182, 193, 0.7);
             cursor: pointer;
+            position: absolute;
+            z-index: 2;
         }
 
         .letter {
             width: 80%;
             height: 80%;
-            background: linear-gradient(135deg, #fff, #fff5f5);
+            background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             margin: 20px auto;
             border: 2px solid var(--primary-color);
@@ -74,22 +82,28 @@
             transform: translate(-50%, -50%);
             opacity: 0;
             transition: all 0.8s ease-in-out;
+            z-index: 1;
+        }
+
+        .envelope.open .letter {
+            transform: translate(-50%, -80%);
+            opacity: 1;
         }
 
         .letter h1 {
             font-family: 'Dancing Script', cursive;
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--secondary-color);
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .letter-content {
             font-size: 1.2em;
             color: #333;
             line-height: 1.6;
+            font-family: 'Dancing Script', cursive;
         }
 
         /* Rectangular Box for 'For You' Link */
@@ -103,6 +117,7 @@
             cursor: pointer;
             box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
             transition: background-color 0.3s ease;
+            margin: 20px auto;
         }
 
         .precious-link-box a {
@@ -113,37 +128,31 @@
 
         .precious-link-box:hover {
             background-color: #ff1493;
+            transform: scale(1.05);
         }
 
-        #clickMeBtn {
-            display: block;
-            margin-top: 15px;
-            background-color: #ff1493;
-            color: white;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        .click-text.hidden {
+            display: none;
         }
 
-        #clickMeBtn:hover {
-            background-color: #ff69b4;
-        }
+        @media (max-width: 768px) {
+            .envelope {
+                width: 300px;
+                height: 300px;
+            }
 
-        /* Background Quote */
-        .background-quote {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Lobster', cursive;
-            color: #fff;
-            text-align: center;
-            padding: 10px 20px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.5);
+            .letter {
+                width: 85%;
+                height: 85%;
+            }
+
+            .letter h1 {
+                font-size: 2em;
+            }
+
+            .letter-content {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -156,7 +165,7 @@
 
     <div class="container">
         <div class="envelope" id="envelope" onclick="toggleEnvelope()">
-            <div class="click-text">Click Me</div>
+            <div class="click-text" id="clickText">Click Me</div>
             <div class="letter" id="letter">
                 <h1>Be My Valentine</h1>
                 <p class="letter-content">I hope this message brings a smile to your face. Wishing you a day filled with love and happiness. Happy Valentine's Day!</p>
@@ -171,8 +180,10 @@
         function toggleEnvelope() {
             const envelope = document.getElementById('envelope');
             const letter = document.getElementById('letter');
+            const clickText = document.getElementById('clickText');
+            
             envelope.classList.toggle('open');
-            letter.style.opacity = envelope.classList.contains('open') ? 1 : 0;
+            clickText.classList.add('hidden');
         }
     </script>
 </body>
