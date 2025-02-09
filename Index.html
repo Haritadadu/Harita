@@ -24,14 +24,6 @@
             position: relative;
             min-height: 100vh;
             background-attachment: fixed;
-            animation: backgroundMove 20s infinite linear;
-        }
-
-        /* Animating background */
-        @keyframes backgroundMove {
-            0% { background-position: center; }
-            50% { background-position: left center; }
-            100% { background-position: center; }
         }
 
         .header-quote, .footer-quote {
@@ -46,26 +38,16 @@
             padding: 10px;
             background: rgba(255, 105, 180, 0.3);
             backdrop-filter: blur(5px);
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-
-        /* Animating fadeIn effect for quotes */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
         .header-quote {
             top: 20px;
             font-size: 1.8em;
-            animation-delay: 1s; /* Delay for header quote */
         }
 
         .footer-quote {
             bottom: 20px;
             font-size: 1.5em;
-            animation-delay: 2s; /* Delay for footer quote */
         }
 
         .container {
@@ -127,7 +109,7 @@
             opacity: 0;
             transition: all 0.8s ease-in-out;
             z-index: 1;
-            font-size: 1em;
+            font-size: 1em; /* Adjusting font size to be smaller */
             text-align: center;
         }
 
@@ -146,7 +128,7 @@
 
         .letter-content {
             font-family: 'Arial', sans-serif;
-            font-size: 1em;
+            font-size: 1em; /* Smaller font size for better readability */
             color: #333;
             line-height: 1.6;
             text-align: center;
@@ -177,7 +159,43 @@
             font-family: 'Pacifico', cursive;
         }
 
-        /* Keep the hearts and the floating hearts untouched */
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff69b4;
+            transform: rotate(45deg);
+            animation: floating 4s ease-in infinite;
+            opacity: 0.6;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #ff69b4;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before { left: -10px; }
+        .heart:after { top: -10px; }
+
+        @keyframes floating {
+            0% { transform: rotate(45deg) translateY(0) scale(0.3); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: rotate(45deg) translateY(-1000px) scale(1); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -194,7 +212,7 @@
             <div class="click-text" id="clickText">Click Me</div>
             <div class="letter" id="letter">
                 <h1>Be My Valentine</h1>
-                <p class="letter-content">will you be my valentine?</p>
+                <p class="letter-content">will you be my valentine?/p>
                 <div class="precious-link-box">
                     <a href="penguin.html" target="_blank">For You ❤️</a>
                 </div>
@@ -205,6 +223,8 @@
     <div class="footer-quote">
         "Every love story is beautiful, but ours is my favorite." 💕
     </div>
+
+    <div class="hearts-container"></div>
 
     <script>
         function toggleEnvelope() {
@@ -225,6 +245,25 @@
                 letter.style.opacity = "0";
             }
         }
+
+        // Function to generate floating hearts in the background
+        function createHearts() {
+            const heartContainer = document.querySelector(".hearts-container");
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+
+                // Set random position for the heart
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 2 + 3}s`; // Random duration for floating effect
+                heart.style.animationDelay = `${Math.random() * 2}s`; // Random delay for starting the animation
+
+                heartContainer.appendChild(heart);
+            }
+        }
+
+        // Call the createHearts function to add floating hearts on page load
+        createHearts();
     </script>
 </body>
 </html>
