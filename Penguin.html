@@ -1,29 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>You're Precious</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin Proposal</title>
     <style>
-        .penguin-page {
-            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA6gMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAAEBQIDAAEGB//EAD0QAAIBAwMBBgQDBQgBBQAAAAECAwAEEQUSITEGEyJBUWEUcYGRByOhMkJSwdEVFjNiorHh8CRDcoKSlP/EABgBAQEBAQEAAAAAAAAAAAAAAAEAAgME/8QAHxEBAQEAAwEAAgMAAAAAAAAAAAERAhIhMUFRAzJh/9oADAMBAAIRAxEAPwBFa2yAjOKYxpGcDHNRitORxzRSWZB3HmvRjz2jIbVDGCVWti3hz0H2qULEKF6CikQN5CjFoZLCJgTxWNp0Z6cUxRQoxgVZs46CrFtL47CNR1FFQ2aDnIqwwljxV0SFetWLVbW4CjFVi2JPGPrR+DxWwoA6VYgYtm6eGrEgdegopOTgLRSKf4amoogt3bqKI+DOOlFwuF4xVjybhgVEt+C5yaw222jgjnzqLRnzoIPuM1A2zelHoAOKtG0+VSKTbsPKoNEfSnMioVNBSbQazY1pe8J9KHkhb0pk0gqtiCM1HStovaqmhHpTCUcnFDtzWcWwG0IPlQk0QHkKPkB8qoaMtQdLJYx6UFPH7U5kt22mgJoj51EkuE9qE2D0pvPATQ3w3tUTiCXaQCc0xhAcelKrW3ZnyabRqUUYOa7vIIWJeKKRAF8qDUtnoaJj3Hgg1JML4xVzHFbjTgVtkqTEYVINzVZWpr4RmhLkwetScDyqlH5q52ytRWWpVW5pijR7PKkofbUviSKjppI6KcioxygtzSzv955q1XPkajp0HXZxVLSc0Cly4GK00xNC0QzcnBrbOcHBoUM3pW2Zj5VGVZudz+1wPSqJgRzk1sTFTirN4Yc0EvM3PNTWYYq+SFWPFVNajGRUg80nXFByz7eaLJCsQVqm7gDrxxiggmu1zzVDXnPhqwWxBOaoltj129PSs7WvFq3e4ENVDsjcmoJhSQRVci56CooTBPWhanJkZzVFRhraYx1phEjMM5GPnSNWkjbG3P1ppZysxClK668xhGpU9RRSHp0NUZWPG5TVquhHHFIEqQak2KGVvFx0ojIK5zQkGArYXcKw49akXCD5kKPc+nzqSKw855qZUjgZqe5hncCuPUVCeZIInlmlSOOMZZnOABUVbDHWoGk992mZE3WGj6jeL5SCB0Q/I4J/TFUWPa+ykujaajbT6fcjqsw4HzPBH1FGHK6BV5q1TitxbZFDIQynlSDkEVaIs1Bi7cVEsuetWGIkcGoG3kxxz9Kqk0df4hVoANUJC46rRCIT50NRBoCT4cVrG3g0bGAB4qonXJ4pwqM81ZuwuMVVgg1YCNtCCSIxfPFUujYPho0kDyrC61EnkK5I24NDyFMEHIo+4jXeWz+lByRB84PT2oMAPEjHwk5qp42XyomS2KtkZqqXKjkn7UNaXXiOOgoTEnrTCdxj940H/wDFqCMhcftHmjreVu8BUUHFB3a72plZd3tya7PLRIcyOAc1eq845+tDIfzCcGikfHWgrFXBNW4Ij4NVFzjIFR3MeMdakZ6HZC/lkkmJEMJAZRwS2M4z5cYP1Feear2c7XXmt3Be0uG7udu4lR9kSpnKlTnAGMe/rk027M9r30/tHc6ZMqva3V22H3YMbYC/X9kcV6iQT5jArOu3GZHisltqsUc51LUpxdWieFbSQp4Sxz4/DkZyTx96U/3s1OG6Ve+hupAPyBcyFxE/k4XgFvfyr2LW7rQ7tnsru7tPiWBQB8Z5GOK5e80HTZtNjsWgEfcxiOKaMBZEwMZ3f1qu/hXl76R6x+Iuow2lvBp0zQzqUaZ5UBwB+0BnyJ9PKmw1zSu2+jSR3SRx3gQKSVBaFuoYHrtzn261xepdjdQglVLaSK5j6LIPyz68gk/7/wBKjomh6zpurRyCzkERO2Yg5Xb5HPzrG2Oty/B/Y/WLrRta/sq9J7rve7dSchGJwGX/ACkkfQ+1epOy7RgFT6V5d21tCb/SbmNT37zpCSo4OWGCTn+tekXNwu0bT65Nb43xx/kXq3Q5q1bhB50AkpZOMVS0h3jNNrMNmmRuhqO9l6Yqi3cUx+HDJnGKiF709eazvOOlb2gPjOaINuMZ6VICWJPSsPSrmRBVbAeVZKluelC3DNCAetHYA6Ch7gKw4qQIzBxg1VIh6rWTIN3FVSPtXmgq5ZiFILAfWgxOGYgsKyZGfOPOhGhZSRg5oagiaWPOGK0Pvi9RQlxbMxyN1U9y/qatpMVnZ4kBby6Uys9iIM9TVVrp7OgNGmzZUGw4Ndnlq3cu0461OMgDxCh47eVfET86LQblwakksidKX9ptTOm6Xvt/8eZu7jP8PHLf99RTSG3BPG361w/bK/E2qNDBgpaoU+bfvfrgVnlcjp/Hx2612D0NdR1Z767m+HtrEiaWVgDg9QCWyB51302oat2t/I0EPZaZ3u2W+dgHkTz2L19vIGl+bbs3+Hs01hLHO88Y3zxgHvXbjnJIIGcU4/DOA2fZa2DwxxGX8zwNu3g9GPv7eVYldr+207BaBBayQS28spk6yyTPnjOCMHGeTS2awNjI1mJJJRDhQ7nLMMAjPqcGvQ0ww8WCK5W+VZtWmdsAHAx8hinj9c+fpAmpWGnXccOouI++/wAMucAnnjJ6U4vri2ityIdvPkOaD7T6TbanpDW8kImQuAVHUcHxD0IrghJq3ZW7t7TUZ0uNNkb8uYqe8Rd3O7pyM+Xl9qzyvrfGeBe3DSPqenxxShJIR8QSAMrg+H9R+ldroV7Hq1gkyt+aDtkX+Fh/3P1pF+JNna3Nppuq6e6vHNHgOGGGGMr8+KT/AIf6ibPV3tJGwt2g2+Q3ryPuC36VS+nlx3i9Pjtjt4raWy7vF1oZbx1BGK0biR/atbHI6tYYh1I+9ESzBE4IpDDPIvVqME4cHJq0rXmG7dxUxPuGKCbk8VJWZRwM1IVtDHNadFHWhviXBwFrDK7ckYFSFxxI4oe4sGTkciqxKyHOalNqJKYxSiy5t23UHNbvtPrTMzCRuRWpeRkYxRhJo8oCGFUTyBSTkUTO3jKk0Jd4RMEUGBJbnrQvxK/wVZIiYyfOqu7irLTpbB3AwV4NHB9hycmklrdmPBNOraeK4hJPBFdteZRNfBeNvWpRSd6AQwrGhhlbGa00KpgI3nzUsZevdR2/dWGGvZ2EVuPR28/kOSfYVxeu6M9rqEOm6Ex1C5lASWWQAqvB3sPYHnPt5081PUnsZbp1fMsFuEUr1DzHaD7YUN964HtFq15YXdt8HO0LvEAxX+HAOBXK3a9HGZxNtZWU6jbdndPmZrSyVbdFRuJH6lyPXn5cV7VpltDpmn21lA35UEYRSx64FeM/hrpf9oan/aEwJhtSN249XxkE+1eqS3XBIOQftisOl+HJ1FFQkvx060ilWd53lHRuRSm6u0s7e5uJEWOKEtKQD+1559uc1b2L1l73RBHeH/yIDtZic7lPQ/y+1a4X1z5Q+sJAkDrKVzknn7Um7W6PBruntDJEnfopMDMDlW+nX5URqZ/LSSPaWzhkzjIzVyz/ALjANjjmi/Tx+PNOxWrwLo+oaRrQUIWWKDemGhkIKqeeVAI6/T2rmLW/MksW5O5kYb0wfErDkYp/2xSDSe0h+MhxYX7/APk4Z23xN1Oem4HkAZwR70GjQFbcwyxXEOMRvMmC4IxnHka1Jp3HoOjXp1XT45+BKp2TKP3XH9eD9aOET5wK4nstra2mpWOnsgVJIvh5HAwCwYiP6gYXPnkV6Mq8Ak9aYxQgikAqyONsc1ezgVpUdzxUIgARV4dQOa0Y2XqKgYiakuV46kXiPmKDKkGtOpIpS6Vo+eRQhKs2Aaw27N+9WjB3Q3E0NK3BB8NVNLIOMZrHu442waIV42TdxUCqQM7EkYOapuIe8AzRt1jdlfSg3kbHIqMLpoCX2+VUfC/OmEr8e9C98aCNMYU5zRtsQE44pJHd71HipjDMNoyRiujzmEUTMx2NzUCJVk68jiowXSxnIq4XAkbI65zSXKhorrQe0Wp3HLPfRxR7h0Knj9MCuE7VyCVtOlRWyyMdvn1AxXeyr8P2LMZ6TatLvHydgPb90Vxktq+p6xp1tArDu0ZiwOAvOevzArh8em/HpvYXT4rHs7FEyS/npunEh5yR0x5D2pwwhtbQW0QEUKLtRQcACgdPuGS3RGbJVQCc9T61q5Vpfy5AGDgqVPQj3+9ZoIe3dy/9gSwxuO9u5FgX05BJ/wBIP3oL8J53Yz2s0haRcrsbJ24xxQnbrvfjdJj/APQLSlcLnxDbz+po78OLmWe77xwCe7kX6Bsfypnivw21XVzB2xttPl/w57YqPD++CSv+zD6inumzsY+Wzjoc15/+I1x8NrEV3CQ0kcIzjkoQw+3ma6LStSW4ghu0YiOVQ4+ZH9c0cvp4/wBQ34swxS6THOCVYMVVFfaDnnpjnGOfbmuFut9vZ2gQFW7oAN6f9zXqmrXFvcadJbXUTSRTKI22jJ8Rxn9eteQatcSPPcwKcRxSuirnGNpIrpxrNat4bmK3iuHaRVld+5b/ANuASD65/wBq9v0a/fUdNtbwAZljDN7N0PHzzXlXaiGTTuzvZm3d/wA6OJnaPGQS7b8+nVsfWuz/AA1vGuNCMZbmGZlxjoDg/wA6uP0cvjsWyRz1q63mAIwtUCRBwaujKY4rpjC2aXdwBzW4hu4IqClc81YJlXp5UYWpLc54oaVSnWinvlxjFBzP3pOKECmkbJ2ZoG6uJm45xTPuj61FrRWUljiiw6TPFvjyetRSWWJQCDTB7fDYVuKk1oAmWOaz1p2AFuwf2lqxpIJE5xmoyQK+VBoGeHaSFNa9i8SkjjzndVHdrVDCRerZqG96NpRS1DLvDYNMLO0eUY3n7VZA8DphSuflTK0uYEjPIBFdccMAGxlU43E1ZbxtHnLcUwadMBicjPpVUhUtuXGKKZCG+dP7kzlgpEd7Ox//AESH/Yig9DiU6RZN1dossR5Z5qekTW15pmo6ZdMhEN27bDxnJ3f75P1pd2f1K2trN7OV12wyMkZJ6r1B+xrhXojqrTdnGRnI4pjA0LJ3rOCAOT14rjDrsUch2vwMc5xx50d2Rmj1G4YkqlragbYE6MfLj0HFUgorthot1qenRmxRRdxOWiDeEDcMH/cH6VrR7Beyugy3Fyym4WPxbB4VA8h6+pNdY0sbEcULq9hBqunS2cpKpIMEit9WNecdlNEk7WPf6pqEkkbSAiFl/c+nmPanvZXs7Ppen3thc3STMjmSEICMDHPX1xnHt710+jaZDpVlHaWpKoo5PrS3XUurO9iurXJ65Hl086OU8a431QkUwl8+nORxXmXaKzNp2hvoW8IkfvE5zkNzn75r0C07RQXsMkEhZXXdHINxDLn3HPyNJO1Gntrd5BJpAMl6ilWQfvoBnO76frRJhobtYiHsj2dnaVWdbNUVW8wUHHzGBTf8JpGku9Qtg/BRHAxzkEgn/UK53tdbz2lnoWm3Q7uSC23yjfuK5PA446Dp7fKr/wAPbo6X2ks8nCzloXb5jj/UFrU+i/HsyWO44ZuaIGnlOlQWVsgqx+1XPfOqY2muuOapbRwT0FS+DkboQaGe7mL+Gj7aebbk4+tGIN8BKDk4xQssEiMVRT86bPcSYxtBoR5pN3KfrViCrG8fUE1RPIVBGKO3PyWXjNEiOBkLNtq6pzpd852nFRmZ2T9r6V0I+EPhJWtMlkoy2zFXVa4wyFWIxVE8gYk114jsCWPgHNLr6HT1bczJtqvGmcnOrC8i7grY9cVV4fWm0+t2MS9xEBj1xShr2EsTsHJokOkdl2hSNZN8ciheBv2gk/LNFW3aaEkKsRlkYZKoV4/WuchQvH+V3qRoDuMWFH1FagWwZZGEMAVSM5gHiPzz/KjtT1jpLzU9RmczwRyQwZ8CMgIIAA9eehP1PFTg7VSoqw3Fge9U7WVZME/IY/nXOXpiJKzSCKZSCHclgnTH7xPvwD1qUEQhuSovPiyOX7iZQCB5YI44J6Vj2NZEV1KWTtHdyxKRbTPklThkyPn18qWdn7WK91LudQvHtgVJMnGSR1G5unn5eVN5Jba5hLx2luu4jxCZWbgf8en1qC2rNKJoZrpmXxKwdWKKR0JJPBHr5Grf2cOtT0fR4NJuvhdpbu896XLOeedpPGflxXO9jb6fRr1nW0lmjePY8cY8Z5yCOOfP71P4a2u2YMLpSm4uWI2/bI/0+lE2UNlBFJGsl2Gk8IcyOqjOCDtIx+vSrtB1dxB2p0xGdLnv4XRdzBk3BR55K5xTyDVLB0jkS6gKONyneMEetea2+mG1nLz3ksty+T3eZA746AnGCfRScc1Fvi5kY3NqssIY4S+Ug5IGAMAkGnuOj1M6hak4WRSf8uDUJ7mB4x3m3afXzPpXmem4S5U26pFCq53JKYRuPG3Dtn08qq1G1N/OY7i5CnI/NJaXBHlwdv6nrV3i6A9c017PtHc3lnKrWxR2O184O0gDAPqR8qu0XV7nRx8Vdne80IVWhfxRgnOT75A4NY2m7SkZnkuIVjAiKTFBGTxn589Kr020WOVJpZpLtxJ3eGQMg9ix46Z6dKNhw3vdJi7QaG2pG7le+dCCGUESYyVAH7pxgeYrirLUJbS7jlly2zbJGcbcnPBx9/tXdxNPb2wNuLAxgkpb+GPcBngZGT75pRq2n2urBZpe5tZWwpeMooxzjzA5JzxVTj0yPXowofaSCAetSm7S2xAHPvXFRWd5PZxOtvK0kaBYmy3dyEDqVHXPXrjHnWp9RvXjiA0WPlQe9jt4QM+ePPoD78+Vb7s9XWy9ordVLICcdSq9KqXtSQpbBCjzPSudt/hppENzayl2DA742G3ywGUHHNb1HSnKd2/dQwH9neGVx0zuLY49OM1XkusO7btxa3LmOG4jZvQedbn7T3GMhUwP81I4rTSlURiWKWd1IQWrhiwGMkYGeP5VJdLt4lCJHfja2F2qCWz5jLcnPtR2XX/B39+IgAruAx8sGro+1DXkRMFxGR86QTafFeSy7o76WRBvbvpCMsTjktgZ/wAoPtQ8ltJboZYdOicqvjBm2srAjzYAefSrsuppc61dRuWEh+fQVQ3aK6dTklgOvtSa41DdbME0CUSHwlnDNj3zyPtQFrPbRRJJJaXO8nbIXfAAz7jA+tG05Dy41m6YAK7gnlQAeaHfV5zGO9Yk+5oHUEi7tMxGIY5Heb+PQc/qKESPdbd3HFOU5IJDDcR55wSatRy+tW4Qxt/iDy880P8A20v8DfY/0pFPHcxSFRBOP8yuMfTFVd9cfxXP/wB/+KuyMXsba2jzHEMsyA5+YpxFY26OyKmBmsrKvwBOniKW7iieCPLNkvg5zj7fpUdQsEttUvrSOWTuUmRdvhG4EHrgDp5VlZSgctujGOA527DJnjOR+n6U71CGGGziu+5SQuigxPkpkLwcdc/WsrKzWoX6fBbXz95c20bmMMR1GeAecH1oi7jSKURqMxSpkxn9lfLj/nNZWVfoKrCKKSyMskaM28rgqMbRgYx5jnzqpwk57mWNWAZmDc569Plx0rKyr8Nfh08+mxXiGOSa4WOKFNqRyFQPPPufnSHU4V0+NreBmOYy3eOctkHPy/St1lUFM7DRrWXT47x2m75ANpWQrtyRnGOlKNQgiii/tBkEs6xq47zpy3TjHFZWVmfTFGmzC802W6eKJHzjCDj5855plqH5SADnKA88Y6emKysrYbvbx7ewt2hjjTIDEYyC2DyQep4qu01GWWVe/SOVpUyzNnJ49jisrKxDWtV1m4sJwtvHDg5GHBYce2aHgjW/mL3Cg8ZwAMcjp61qsqhF6Nbw2sk8UUShMgFSOCCecjzpjpYFxdz2oAhjyc9yNu7gdR0/SsrKEhJaWskcneW8bYdgdwznDY/lVV/bxNbkKuxANvdocL1IzisrK1BXMatINEvo7W0ijaPu8kSrnJz1wMCl82t3CSOBDbFQpypi4bGCM/U1usqRjHLFcac7yWdtnrgKdv2ziqm0m1kuSGD4RNy4c8Z4I+VZWVCl0NpHPPJtLwlGYAxsfI++abR6ShjUm7vCSBk98a1WVRP/2Q==');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 36px;
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            padding: 10px;
-            box-sizing: border-box;
+            padding: 50px;
+        }
+        h1 {
+            color: #00796b;
+        }
+        .penguin {
+            width: 150px;
+            margin: 20px auto;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .heart:hover {
+            transform: scale(1.2);
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
-    <div class="penguin-page">
-        <h1>You're Precious, I'll keep you as Diamond</h1>
-    </div>
+    <h1>Will You Be My Penguin?</h1>
+    <img class="penguin" src="https://example.com/penguin.png" alt="Penguin Image">
+    <div class="heart" onclick="showMessage()">❤️</div>
+    <div class="message" id="message"></div>
+
+    <script>
+        function showMessage() {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerText = "You make my heart flap like a penguin!";
+        }
+    </script>
 </body>
-</html
+</html>
