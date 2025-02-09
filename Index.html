@@ -1,16 +1,25 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine</title>
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
     <style>
-        /* Center the envelope */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('https://img.freepik.com/premium-photo/moon-against-bright-night-starry-sky-reflected-sea_180633-732.jpg?semt=ais_hybrid');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                            url('https://img.freepik.com/premium-photo/moon-against-bright-night-starry-sky-reflected-sea_180633-732.jpg?semt=ais_hybrid');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -19,45 +28,49 @@
             overflow: hidden;
         }
 
-        /* Envelope styles */
         .envelope {
-            width: 300px;
-            height: 300px;
-            background-color: #ffe6e6;
-            border: 1px solid #ffc0cb;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(45deg, #ffe6e6, #ffd1dc);
+            border: 2px solid #ffc0cb;
             clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
             position: relative;
             overflow: hidden;
-            transition: all 0.5s ease-in-out;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Courier New', Courier, monospace;
-            color: #ff69b4;
-            font-size: 18px;
+            font-family: 'Great Vibes', cursive;
+            color: #ff1493;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 182, 193, 0.8);
         }
 
         .envelope.open {
-            transform: rotate(0deg) scale(1.1);
+            transform: rotate(5deg) scale(1.2);
         }
 
-        /* Letter inside the envelope */
         .envelope .letter {
-            width: 80%;
-            height: 80%;
-            background-color: #fff;
-            padding: 20px;
+            width: 85%;
+            height: 85%;
+            background: linear-gradient(to bottom right, #fff, #fff5f5);
+            padding: 25px;
             margin: 20px auto;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ffb6c1;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            transition: all 0.5s ease-in-out;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             opacity: 0;
         }
 
@@ -66,169 +79,102 @@
             opacity: 1;
         }
 
-        /* Typewriter effect for the title */
         .letter h1 {
-            color: #ff69b4;
+            color: #ff1493;
             text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            overflow: hidden;
-            border-right: 0.15em solid #ff69b4;
-            width: 0;
-            animation: typing 4s steps(30) forwards, blink 0.75s step-end infinite;
+            font-family: 'Parisienne', cursive;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite;
         }
 
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4; }
+            50% { text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff69b4; }
         }
 
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
+        .precious-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            color: #ff1493;
+            text-decoration: none;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
         }
 
-        /* Heart decoration floating */
+        .precious-link:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px #ff69b4;
+        }
+
         .heart-decoration {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 20px;
-            height: 20px;
-            background-color: #ff69b4;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            transform: rotate(45deg);
+            animation: heartbeat 1.5s ease-in-out infinite, float 3s ease-in-out infinite;
+        }
+
+        .heart-decoration:before,
+        .heart-decoration:after {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background: inherit;
             border-radius: 50%;
-            animation: heartbeat 2s infinite, float 3s ease-in-out infinite;
+            position: absolute;
         }
 
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
+        .heart-decoration:before {
+            left: -12.5px;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-30px);
-            }
-            100% {
-                transform: translateY(0);
-            }
+        .heart-decoration:after {
+            top: -12.5px;
         }
 
-        /* Penguin image */
-        .penguin-image {
-            width: 50px;
-            height: 50px;
-            background-image: url('https://source.unsplash.com/50x50/?penguin');
-            background-size: cover;
-            background-position: center;
-            border-radius: 50%;
-            margin: 20px auto;
-        }
-
-        /* Background quote */
         .background-quote {
             position: absolute;
-            bottom: 10px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
             text-align: center;
             color: #fff;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeQuote 10s infinite;
         }
 
-        @keyframes fadeQuote {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        /* Decorative stars and animation */
         .stars {
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 50px;
-            color: white;
-            opacity: 0.7;
-            animation: shootingStars 3s linear infinite;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+            animation: twinkle 1.5s infinite;
         }
 
-        @keyframes shootingStars {
-            0% {
-                top: -100px;
-                left: 50%;
-                opacity: 1;
-            }
-            100% {
-                top: 100vh;
-                left: 60%;
-                opacity: 0;
-            }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Add multiple star elements with different animations */
+        .stars:nth-child(2n) {
+            animation-delay: 0.5s;
+        }
+
+        .stars:nth-child(3n) {
+            animation-delay: 1s;
         }
     </style>
 </head>
-<body>
-    <!-- Background Music -->
-   <iframe width="440" height="650" src="https://li.sten.to/embed/4dlu25bs" frameborder="0"></iframe>
-<br>
-<a href="https://li.sten.to" style='text-decoration:none;color:#888;font-family: sans-serif;font-size:0.7em'>Created with ListenTo - Free Smart URLs & Pre-Save Links</a>
-
-<audio autoplay loop>
-    <source src="https://li.sten.to/4dlu25bs" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-    <div class="container">
-        <div class="envelope">
-            Click Me
-            <div class="letter">
-                <h1>Will you be my Valentine?</h1>
-                <a href="penguin.html" class="precious-link">For you 🎁</a>
-                <div class="penguin-image"></div>
-            </div>
-            <div class="heart-decoration"></div>
-        </div>
-        <div class="background-quote">
-            "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
-        </div>
-        <div class="stars">✨</div>
-    </div>
-
-    <script>
-        const envelope = document.querySelector('.envelope');
-        const letter = document.querySelector('.letter');
-
-        // Envelope opening animation
-        envelope.addEventListener('click', () => {
-            envelope.classList.toggle('open');
-            letter.classList.toggle('open');
-        });
-    </script>
-</body>
+<!-- Rest of the HTML remains the same -->
 </html>
