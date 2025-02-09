@@ -17,6 +17,8 @@
             margin: 0;
             padding: 0;
             font-family: 'Pacifico', cursive;
+            background-color: #f8f8f8;
+            overflow: hidden;
         }
 
         /* First Page Styles */
@@ -65,8 +67,8 @@
         }
 
         .letter {
-            width: 80%; /* Adjust width to ensure text fits within the envelope */
-            height: 80%; /* Adjust height to ensure text fits within the envelope */
+            width: 80%;
+            height: 80%;
             background: linear-gradient(135deg, #fff, #fff5f5);
             padding: 20px;
             margin: 20px auto;
@@ -77,7 +79,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0; /* Initially hidden */
+            opacity: 0;
             transition: all 0.8s ease-in-out;
         }
 
@@ -171,71 +173,34 @@
     </style>
 </head>
 <body>
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-    </audio>
-
     <div class="container">
-        <div class="floating-hearts"></div>
-        <div class="envelope">
-            <div class="click-text">Click Me!</div>
-            <div class="letter">
-                <h1>Will you be my Valentine?</h1>
-                <div class="letter-content">
-                    <p>My dearest,</p>
-                    <p>Every moment with you makes my heart flutter,<br>
-                    Would you make my day special by being my Valentine?</p>
+        <div class="envelope" id="envelope" onclick="revealMessage()">
+            <div class="click-text">Click Me</div>
+            <div class="letter" id="letter">
+                <h1>Be My Valentine</h1>
+                <p class="letter-content">I hope this message brings a smile to your face and warmth to your heart. Will you be mine?</p>
+                <div class="precious-link-box">
+                    <a href="secondPage.html" target="_blank">For You</a>
                 </div>
             </div>
         </div>
-        
-        <!-- Rectangular Box for 'For You' Hyperlink -->
-        <div class="precious-link-box">
-            <a href="penguin.html">For you 🎁</a>
-        </div>
+    </div>
+    <div class="floating-hearts">
+        <span class="heart" style="left: 10%; top: 30%;">❤️</span>
+        <span class="heart" style="left: 60%; top: 50%;">💖</span>
+        <span class="heart" style="left: 80%; top: 10%;">💞</span>
+        <span class="heart" style="left: 25%; top: 80%;">💕</span>
+    </div>
 
-        <div class="background-quote">
-            "In all the world, there is no heart for me like yours.<br>
-            In all the world, there is no love for you like mine."
-        </div>
+    <div class="background-quote">
+        "Love is in the air! 💖"
     </div>
 
     <script>
-        // Play music on user interaction
-        document.body.addEventListener('click', () => {
-            document.getElementById('bgMusic').play();
-        });
-
-        // Envelope click action to reveal the message
-        const envelope = document.querySelector('.envelope');
-        envelope.addEventListener('click', () => {
-            document.querySelector('.letter').style.opacity = 1; // Show letter content
-            envelope.querySelector('.click-text').style.display = 'none'; // Hide "Click Me"
-        });
-
-        // "Click Me" button action
-        document.getElementById('clickMeBtn').addEventListener('click', () => {
-            window.location.href = 'penguin.html'; // Navigate to the penguin page
-        });
-
-        // Create floating hearts
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
-            
-            document.querySelector('.floating-hearts').appendChild(heart);
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 6000);
+        function revealMessage() {
+            document.getElementById("letter").style.opacity = "1";  // Reveal the message
+            document.getElementById("envelope").style.opacity = "0"; // Hide the envelope
         }
-
-        // Create hearts at intervals
-        setInterval(createHeart, 300);
     </script>
-
 </body>
 </html>
