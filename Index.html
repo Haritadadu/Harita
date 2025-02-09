@@ -97,10 +97,27 @@
             line-height: 1.6;
         }
 
-        .precious-link {
-            font-size: 1.5em;
+        /* Rectangular Box for 'For You' Link */
+        .precious-link-box {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            border-radius: 10px;
             text-align: center;
-            display: inline-block;
+            width: 250px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        .precious-link-box a {
+            font-size: 1.5em;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .precious-link-box:hover {
+            background-color: #ff1493;
         }
 
         #clickMeBtn {
@@ -167,12 +184,16 @@
                 <div class="letter-content">
                     <p>My dearest,</p>
                     <p>Every moment with you makes my heart flutter,<br>
-             Would you make my day special by being my Valentine?</p>
-                    <a href="penguin.html" class="precious-link">For you 🎁</a>
+                    Would you make my day special by being my Valentine?</p>
                 </div>
-                <button id="clickMeBtn">Click Me</button>
             </div>
         </div>
+        
+        <!-- Rectangular Box for 'For You' Hyperlink -->
+        <div class="precious-link-box">
+            <a href="penguin.html">For you 🎁</a>
+        </div>
+
         <div class="background-quote">
             "In all the world, there is no heart for me like yours.<br>
             In all the world, there is no love for you like mine."
@@ -183,12 +204,6 @@
         // Play music on user interaction
         document.body.addEventListener('click', () => {
             document.getElementById('bgMusic').play();
-        });
-
-        // Envelope animation
-        const envelope = document.querySelector('.envelope');
-        envelope.addEventListener('click', () => {
-            envelope.classList.toggle('open');
         });
 
         // "Click Me" button action
