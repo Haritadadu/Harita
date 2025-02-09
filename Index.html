@@ -17,30 +17,24 @@
             margin: 0;
             padding: 0;
             font-family: 'Pacifico', cursive;
-            background-color: #f8f8f8;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
             overflow: hidden;
+            position: relative;
         }
 
-        /* First Page Styles */
+        /* Envelope Styles */
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('https://img.freepik.com/premium-photo/moon-against-bright-night-starry-sky-reflected-sea_180633-732.jpg?semt=ais_hybrid');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
             position: relative;
-            overflow: hidden;
         }
 
         .envelope {
             width: 350px;
             height: 350px;
-            background: rgba(255, 182, 193, 0.8); /* Opaque background */
+            background: rgba(255, 182, 193, 0.8);
             border: 2px solid var(--primary-color);
             clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
             position: relative;
@@ -139,25 +133,7 @@
             background-color: #ff69b4;
         }
 
-        /* Floating Hearts */
-        .floating-hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 25px;
-            animation: floatingHeart 6s linear infinite, heartColorChange 2s infinite;
-        }
-
-        @keyframes floatingHeart {
-            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100vh) translateX(100px) rotate(360deg); opacity: 0; }
-        }
-
+        /* Background Quote */
         .background-quote {
             position: absolute;
             bottom: 20px;
@@ -173,33 +149,28 @@
     </style>
 </head>
 <body>
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="path_to_your_romantic_song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="container">
         <div class="envelope" id="envelope" onclick="revealMessage()">
             <div class="click-text">Click Me</div>
             <div class="letter" id="letter">
                 <h1>Be My Valentine</h1>
-                <p class="letter-content">I hope this message brings a smile to your face and warmth to your heart. Will you be mine?</p>
+                <p class="letter-content">I hope this message brings a smile to your face. Wishing you a day filled with love and happiness. Happy Valentine's Day!</p>
                 <div class="precious-link-box">
-                    <a href="secondPage.html" target="_blank">For You</a>
+                    <a href="second-page.html" target="_blank">For You</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="floating-hearts">
-        <span class="heart" style="left: 10%; top: 30%;">❤️</span>
-        <span class="heart" style="left: 60%; top: 50%;">💖</span>
-        <span class="heart" style="left: 80%; top: 10%;">💞</span>
-        <span class="heart" style="left: 25%; top: 80%;">💕</span>
-    </div>
-
-    <div class="background-quote">
-        "Love is in the air! 💖"
-    </div>
 
     <script>
         function revealMessage() {
-            document.getElementById("letter").style.opacity = "1";  // Reveal the message
-            document.getElementById("envelope").style.opacity = "0"; // Hide the envelope
+            document.getElementById('letter').style.opacity = 1;
         }
     </script>
 </body>
