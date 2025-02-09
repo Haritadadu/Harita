@@ -67,16 +67,17 @@
             clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
             position: relative;
             overflow: hidden;
-            transition: all 0.8s ease-in-out;
             box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 1; /* Envelope will be visible */
+            transition: transform 0.3s ease; /* Transition only transform */
         }
 
         .envelope.open {
-            transform: translateY(-50px);
+            transform: translateY(-50px); /* Envelope moves up on click */
         }
 
         .click-text {
@@ -107,15 +108,13 @@
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
-            transition: all 0.8s ease-in-out;
             z-index: 1;
-            font-size: 1em; /* Adjusting font size to be smaller */
+            font-size: 1em;
             text-align: center;
         }
 
         .envelope.open .letter {
-            transform: translate(-50%, -80%);
-            opacity: 1;
+            opacity: 1; /* Show the letter when envelope is open */
         }
 
         .letter h1 {
@@ -128,7 +127,7 @@
 
         .letter-content {
             font-family: 'Arial', sans-serif;
-            font-size: 1em; /* Smaller font size for better readability */
+            font-size: 1em;
             color: #333;
             line-height: 1.6;
             text-align: center;
@@ -199,7 +198,6 @@
     </style>
 </head>
 <body>
-    <!-- Romantic audio background -->
     <audio controls>
         <source src="https://www.bensound.com/bensound-music/bensound-encore.mp3" type="audio/mp3">
     </audio>
@@ -212,7 +210,7 @@
             <div class="click-text" id="clickText">Click Me</div>
             <div class="letter" id="letter">
                 <h1>Be My Valentine</h1>
-                <p class="letter-content">will you be my valentine?/p>
+                <p class="letter-content">Will you be my Valentine?</p>
                 <div class="precious-link-box">
                     <a href="penguin.html" target="_blank">For You ❤️</a>
                 </div>
@@ -238,7 +236,7 @@
             // Show/hide the "Click Me" text
             clickText.classList.toggle("hidden");
 
-            // If the envelope is open, animate the letter to appear
+            // If the envelope is open, make sure the letter appears
             if (envelope.classList.contains("open")) {
                 letter.style.opacity = "1";
             } else {
