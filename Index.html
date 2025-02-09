@@ -47,9 +47,8 @@
             align-items: center;
         }
 
-        .envelope:hover {
-            transform: scale(1.05) rotate(2deg);
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
+        .envelope.open {
+            transform: rotateX(180deg);
         }
 
         .click-text {
@@ -156,7 +155,7 @@
     </audio>
 
     <div class="container">
-        <div class="envelope" id="envelope" onclick="revealMessage()">
+        <div class="envelope" id="envelope" onclick="toggleEnvelope()">
             <div class="click-text">Click Me</div>
             <div class="letter" id="letter">
                 <h1>Be My Valentine</h1>
@@ -169,8 +168,11 @@
     </div>
 
     <script>
-        function revealMessage() {
-            document.getElementById('letter').style.opacity = 1;
+        function toggleEnvelope() {
+            const envelope = document.getElementById('envelope');
+            const letter = document.getElementById('letter');
+            envelope.classList.toggle('open');
+            letter.style.opacity = envelope.classList.contains('open') ? 1 : 0;
         }
     </script>
 </body>
