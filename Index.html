@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        /* Center the envelope */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://img.freepik.com/premium-photo/moon-against-bright-night-starry-sky-reflected-sea_180633-732.jpg?semt=ais_hybrid');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Envelope styles */
+        .envelope {
+            width: 300px;
+            height: 300px;
+            background-color: #ffe6e6;
+            border: 1px solid #ffc0cb;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .envelope.open {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        /* Letter inside the envelope */
+        .envelope .letter {
+            width: 80%;
+            height: 80%;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .envelope.open .letter {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* Typewriter effect for the title */
+        .letter h1 {
+            color: #ff69b4;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            border-right: 0.15em solid #ff69b4;
+            width: 0;
+            animation: typing 4s steps(30) forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Heart decoration floating */
+        .heart-decoration {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            animation: heartbeat 2s infinite, float 3s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Penguin image */
+        .penguin-image {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://source.unsplash.com/50x50/?penguin');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+
+        /* Background quote */
+        .background-quote {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            animation: fadeQuote 10s infinite;
+        }
+
+        @keyframes fadeQuote {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Decorative stars and animation */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            color: white;
+            opacity: 0.7;
+            animation: shootingStars 3s linear infinite;
+        }
+
+        @keyframes shootingStars {
+            0% {
+                top: -100px;
+                left: 50%;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                left: 60%;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <div class="envelope">
+            <div class="letter">
+                <h1>Will you be my Valentine?</h1>
+                <a href="penguin.html" class="precious-link">For you 🎁</a>
+                <div class="penguin-image"></div>
+            </div>
+            <div class="heart-decoration"></div>
+        </div>
+        <div class="background-quote">
+            "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
+        </div>
+        <div class="stars">✨</div>
+    </div>
+
+    <script>
+        const envelope = document.querySelector('.envelope');
+        const letter = document.querySelector('.letter');
+        const heart = document.querySelector('.heart-decoration');
+
+        // Envelope opening animation
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('open');
+            letter.classList.toggle('open');
+        });
+
+        // Heart floating animation trigger
+        heart.addEventListener('animationiteration', () => {
+            heart.style.animation = 'heartbeat 2s infinite, float 3s ease-in-out infinite';
+        });
+    </script>
+</body>
+</html>
