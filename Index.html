@@ -26,6 +26,17 @@
             background-attachment: fixed;
         }
 
+        /* Soft gradient overlay for a romantic feel */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 105, 180, 0.6); /* Soft pink gradient */
+            z-index: 1;
+        }
+
         .header-quote, .footer-quote {
             position: fixed;
             left: 0;
@@ -196,6 +207,11 @@
             50% { opacity: 0.6; }
             100% { transform: rotate(45deg) translateY(-1000px) scale(1); opacity: 0; }
         }
+
+        /* Adding a gentle glow to romantic text */
+        .header-quote, .footer-quote {
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -203,6 +219,10 @@
     <audio controls>
         <source src="https://www.bensound.com/bensound-music/bensound-encore.mp3" type="audio/mp3">
     </audio>
+    
+    <!-- Overlay for extra romantic atmosphere -->
+    <div class="overlay"></div>
+    
     <div class="header-quote">
         "In all the world, there is no heart for me like yours." ❤️
     </div>
@@ -212,7 +232,7 @@
             <div class="click-text" id="clickText">Click Me</div>
             <div class="letter" id="letter">
                 <h1>Be My Valentine</h1>
-                <p class="letter-content">will you be my valentine?/p>
+                <p class="letter-content">will you be my valentine?</p>
                 <div class="precious-link-box">
                     <a href="penguin.html" target="_blank">For You ❤️</a>
                 </div>
